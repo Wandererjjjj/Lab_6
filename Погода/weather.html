@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Погода</title>
+        <!-- Подключение файла стилей -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+<body>
+    <!-- Приветственное окно -->
+    <div id="welcome-container">
+        <h1>Добро пожаловать!</h1>
+        <input type="text" id="user-name-input" placeholder="Введите ваше имя">
+        <button id="continueButton">Далее</button>
+    </div>
+    
+    <!-- Погодная информация -->
+    <div id="weather-container">
+        <h1>Здравствуй <span id="user-name"></span> введи название города:</h1>
+        <!-- Здесь размещается информация о погоде -->
+        <input type="text" id="cityInput" placeholder="Введите название города">
+        <button id="searchButton">Поиск</button>
+        <table>
+            <tr>
+                <td>Город:</td>
+                <td><span id="city-name"></span></td>
+            </tr>
+            <tr>
+                <td>Температура:</td>
+                <td><span id="temperature"></span></td>
+                <td><input type="checkbox" id="hide-temperature"><label for="hide-temperature">Скрыть температуру</label></td>
+            </tr>
+            <tr>
+                <td>Ощущается как:</td>
+                <td><span id="feels-like"></span></td>
+                <td><input type="checkbox" id="hide-feels-like"><label for="hide-feels-like">Скрыть ощущается как</label></td>
+            </tr>
+            <tr>
+                <td>Минимальная температура:</td>
+                <td><span id="min-temperature"></span></td>
+                <td><input type="checkbox" id="hide-min-temperature"><label for="hide-min-temperature">Скрыть минимальную температуру</label></td>
+            </tr>
+            <tr>
+                <td>Максимальная температура:</td>
+                <td><span id="max-temperature"></span></td>
+                <td><input type="checkbox" id="hide-max-temperature"><label for="hide-max-temperature">Скрыть максимальную температуру</label></td>
+            </tr>
+            <tr>
+                <td>Влажность:</td>
+                <td><span id="humidity"></span></td>
+                <td><input type="checkbox" id="hide-humidity"><label for="hide-humidity">Скрыть влажность</label></td>
+            </tr>
+            <tr>
+                <td>Давление:</td>
+                <td><span id="pressure"></span></td>
+                <td><input type="checkbox" id="hide-pressure"><label for="hide-pressure">Скрыть давление</label></td>
+            </tr>
+            <tr>
+                <td>Скорость ветра:</td>
+                <td><span id="wind-speed"></span></td>
+                <td><input type="checkbox" id="hide-wind-speed"><label for="hide-wind-speed">Скрыть скорость ветра</label></td>
+            </tr>
+            <tr>
+                <td>Направление ветра:</td>
+                <td><span id="wind-direction"></span></td>
+                <td><input type="checkbox" id="hide-wind-direction"><label for="hide-wind-direction">Скрыть направление ветра</label></td>
+            </tr>
+            <tr>
+                <td>Восход солнца:</td>
+                <td><span id="sunrise"></span></td>
+                <td><input type="checkbox" id="hide-sunrise"><label for="hide-sunrise">Скрыть восход солнца</label></td>
+            </tr>
+            <tr>
+                <td>Закат солнца:</td>
+                <td><span id="sunset"></span></td>
+                <td><input type="checkbox" id="hide-sunset"><label for="hide-sunset">Скрыть закат солнца</label></td>
+            </tr>
+            <tr>
+                <td>Состояние погоды:</td>
+                <td><span id="weather-condition"></span></td>
+                <td><input type="checkbox" id="hide-weather-condition"><label for="hide-weather-condition">Скрыть состояние погоды</label></td>
+            </tr>
+        </table>
+        <!-- Кнопка для построения графика -->
+        <button id="plotChartButton">Построить график</button>
+        
+        <!-- Контейнеры для диаграмм -->
+        <div id="humidity-pressure-chart-container" class="chart-container">
+            <canvas id="humidity-pressure-chart"></canvas>
+        </div>
+        <div id="other-parameters-chart-container" class="chart-container">
+            <canvas id="other-parameters-chart"></canvas>
+        </div>
+    </div>
+
+    
+    <!-- Оба JavaScript файла подключены здесь -->
+    <script src="welcome.js"></script>
+    <script type="module" src="weather.js"></script>
+</body>
+</html>

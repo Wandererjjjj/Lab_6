@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #782cce;
+    animation: fadeIn 1s ease-in-out; /* Анимация появления всей страницы */
+    background-image: url('Фон.jpg');
+    background-size: cover; /* Растянуть изображение на весь экран */
+    background-repeat: no-repeat; /* Запретить повторение фона */
+    background-attachment: fixed; /* Фон будет зафиксирован на месте, при прокрутке страницы */
+}
+
+#weather-container {
+    display: none;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #000000;
+    width: 500px;
+    background-color: #f6f7fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Тень */
+    animation: slideIn 1s ease-in-out; /* Анимация появления контейнера с погодной информацией */
+}
+
+table {
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table td, table th {
+    padding: 10px;
+    border: 1px solid #000000;
+    text-align: left;
+}
+
+/* Ограничьте максимальную ширину ячеек с информацией о городе */
+#city-name,
+#temperature,
+#feels-like,
+#min-temperature,
+#max-temperature,
+#humidity,
+#pressure,
+#wind-speed,
+#wind-direction,
+#sunrise,
+#sunset,
+#weather-condition {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: opacity 0.5s ease-in-out; /* Плавное изменение прозрачности */
+}
+
+/* Анимация кнопок и инпутов */
+button, input[type="text"] {
+    background-color: #c4beff;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 5px; /* Скругленные углы */
+}
+
+button:hover, input[type="text"]:hover {
+    background-color: #0056b3;
+    color: #fff; /* Белый текст при наведении */
+}
+
+
+/* Анимация приветственного окна */
+#welcome-container {
+    animation: slideIn 1s ease-in-out; /* Анимация появления приветственного окна */
+}
+
+/* Анимация иконки "Далее" */
+#continueButton {
+    animation: rotate 2s linear infinite; /* Бесконечное вращение */
+}
+
+/* Ключевые кадры анимаций */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-20px); /* Начальное положение контейнера */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0); /* Конечное положение контейнера */
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg); /* Начальный угол вращения */
+    }
+    100% {
+        transform: rotate(360deg); /* Конечный угол вращения (полный оборот) */
+    }
+}
